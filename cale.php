@@ -13,9 +13,11 @@
         $tel=$_POST['tel'];
 
         //Ingrese cliente
-        $cACliente="INSERT INTO cliente(dni,apellido,nombre,mail,telefono) VALUES($dniC,'$a','$no','$em',$tel)";
-        $query=mysqli_query($conn,$cACliente);
-
+        $cHay=mysqli_query($conn,"SELECT * from cliente where dni=$dniC");
+        if(mysqli_num_rows($cHay)==0){
+            $cACliente="INSERT INTO cliente(dni,apellido,nombre,mail,telefono) VALUES($dniC,'$a','$no','$em',$tel)";
+            $query=mysqli_query($conn,$cACliente);
+        }
 
         //Quiero saber la duracion del tratamiento
         $cons="SELECT duracion FROM tratamiento where id=$idT";

@@ -120,7 +120,6 @@ function close(){
 }
 
 function cancelar(){
-    alert($('#f').html());
     var r=confirm("Desea cancelar el turno?");
     if(r==true)
         alert("Turno cancelado.");
